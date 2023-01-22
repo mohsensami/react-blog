@@ -9,7 +9,7 @@ const App = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => {
+        axios.get("/posts").then((response) => {
             setPosts(response.data);
         });
         setLoading(false);
@@ -24,13 +24,13 @@ const App = () => {
                 ) : (
                     <div className="row">
                         {posts.map((post) => {
-                            const src = `https://picsum.photos/id/${post.id}/200/300`;
+                            const src = `https://picsum.photos/id/${post.id}/300/200`;
                             return (
-                                <div className="col-md-3">
+                                <div className="col-md-3 col-sm-4 col-6 mb-3">
                                     <div className="card">
                                         <img src={src} alt={post.title}></img>
-                                        <h3 className="card-header">{post.title}</h3>
-                                        <p className="card-body">{post.body}</p>
+                                        <h3 className="card-header">{post.title.slice(1, 30)} ...</h3>
+                                        <p className="card-body">{post.body.slice(1, 40)} ... </p>
                                     </div>
                                 </div>
                             );
