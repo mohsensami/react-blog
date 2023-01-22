@@ -34,8 +34,10 @@ const App = () => {
                         {posts.map((post) => {
                             return (
                                 <div className="col-md-3">
-                                    <h3>{post.title}</h3>
-                                    <p>{post.body}</p>
+                                    <div className="card">
+                                        <h3 className="card-header">{post.title}</h3>
+                                        <p className="card-body">{post.body}</p>
+                                    </div>
                                 </div>
                             );
                         })}
